@@ -1,0 +1,23 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+build/
+dist/
+
+# Env
+.env
+.env.local
+.env.development
+.env.production
+
+# Database
+*.sqlite
+*.db
+
+# Misc
+.DS_Store
+*.log
