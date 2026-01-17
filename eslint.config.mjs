@@ -2,8 +2,6 @@ import { defineConfig } from "eslint/config";
 import globals from "globals";
 import js from "@eslint/js";
 import prettierPlugin from "eslint-plugin-prettier";
-
-// Importa parser y plugin de TS por separado
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 
