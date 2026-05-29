@@ -563,5 +563,45 @@ export default {
 
       console.log("[bootstrap] project entries seeded successfully");
     }
+
+    // Seed portfolio-page
+    const esPortfolio = await strapi
+      .documents("api::portfolio-page.portfolio-page")
+      .findFirst({ locale: "es" });
+
+    if (!esPortfolio) {
+      const allProjectsEs = await strapi
+        .documents("api::project.project")
+        .findMany({ locale: "es", sort: { sortOrder: "asc" } });
+
+      const allProjectsEn = await strapi
+        .documents("api::project.project")
+        .findMany({ locale: "en", sort: { sortOrder: "asc" } });
+
+      const projectIdsEs = allProjectsEs.map((p: any) => p.documentId);
+      const projectIdsEn = allProjectsEn.map((p: any) => p.documentId);
+
+      await strapi.documents("api::portfolio-page.portfolio-page").create({
+        locale: "es",
+        data: {
+          title: "Mi Portafolio",
+          intro: "Aquí puedes ver algunos de los proyectos en los que he estado trabajando últimamente, junto con uno que otro experimento.",
+          viewMore: "Ver más",
+          projects: projectIdsEs,
+        },
+      });
+      console.log("[bootstrap] portfolio-page (es) seeded successfully");
+
+      await strapi.documents("api::portfolio-page.portfolio-page").create({
+        locale: "en",
+        data: {
+          title: "My Portfolio",
+          intro: "A selection of recent work, including production projects, technical challenges, and a few experiments.",
+          viewMore: "View more",
+          projects: projectIdsEn,
+        },
+      });
+      console.log("[bootstrap] portfolio-page (en) seeded successfully");
+    }
   },
 };
