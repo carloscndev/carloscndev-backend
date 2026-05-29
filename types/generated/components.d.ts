@@ -26,11 +26,25 @@ export interface ElementsSocialLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsTechnology extends Struct.ComponentSchema {
+  collectionName: "components_elements_technologies";
+  info: {
+    description: "A technology item with name and icon identifier";
+    displayName: "Technology";
+    icon: "code";
+  };
+  attributes: {
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
       "elements.navigation-item": ElementsNavigationItem;
       "elements.social-link": ElementsSocialLink;
+      "elements.technology": ElementsTechnology;
     }
   }
 }
