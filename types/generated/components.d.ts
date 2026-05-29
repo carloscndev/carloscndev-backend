@@ -13,6 +13,19 @@ export interface ElementsNavigationItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsProjectLink extends Struct.ComponentSchema {
+  collectionName: "components_elements_project_links";
+  info: {
+    description: "A project link (repo, demo, or article) with type and URL";
+    displayName: "Project Link";
+    icon: "link";
+  };
+  attributes: {
+    type: Schema.Attribute.Enumeration<["repo", "demo", "article"]> & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsSocialLink extends Struct.ComponentSchema {
   collectionName: "components_elements_social_links";
   info: {
@@ -43,6 +56,7 @@ declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
       "elements.navigation-item": ElementsNavigationItem;
+      "elements.project-link": ElementsProjectLink;
       "elements.social-link": ElementsSocialLink;
       "elements.technology": ElementsTechnology;
     }
