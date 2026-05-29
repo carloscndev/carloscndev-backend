@@ -46,13 +46,13 @@ export default {
       },
     },
     content: {
-      type: "blocks",
+      type: 'richtext',
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true,
-        },
-      },
+          localized: true
+        }
+      }
     },
     avatarDefault: {
       type: "media",

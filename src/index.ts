@@ -81,5 +81,88 @@ export default {
       });
       console.log("[bootstrap] global-config (en) seeded successfully");
     }
+
+    // Seed home-page
+    const esHome = await strapi
+      .documents("api::home-page.home-page")
+      .findFirst({ locale: "es" });
+
+    if (!esHome) {
+      const fs = await import("fs");
+      const path = await import("path");
+
+      const assetsDir = path.join(
+        process.cwd(),
+        "..",
+        "carloscndev-frontend",
+        "src",
+        "assets",
+        "images"
+      );
+
+      const uploadFile = async (filename: string) => {
+        const filepath = path.join(assetsDir, filename);
+        if (!fs.existsSync(filepath)) {
+          console.warn(`[bootstrap] Image not found: ${filepath}`);
+          return null;
+        }
+        const stat = fs.statSync(filepath);
+        const uploadService = strapi.plugin("upload").service("upload");
+        const uploaded = await uploadService.upload(
+          {
+            data: { fileInfo: { name: filename } },
+            files: {
+              filepath,
+              originalFilename: filename,
+              mimetype: "image/png",
+              size: stat.size,
+            },
+          },
+          { user: null }
+        );
+        return Array.isArray(uploaded) ? uploaded[0] : uploaded;
+      };
+
+      const avatarDefault = await uploadFile("hello.webp");
+      const avatarRunning = await uploadFile("running.webp");
+      const avatarReading = await uploadFile("reading.webp");
+      const avatarVideogames = await uploadFile("playing.webp");
+
+      const homeDataEs = {
+        intro: "Hola, soy",
+        title: "Carlos Castañeda",
+        subtitle: "carloscndev",
+        content:
+          "<p>Este es mi sitio. Aquí puedes conocer un poco más sobre mí, ver algunos de mis proyectos, en qué estoy trabajando actualmente y, si te interesa, leer algo en el blog.</p><p>Soy ingeniero de software. En mi tiempo libre me gusta <strong data-action=\"running\">correr</strong>. He completado varios maratones y casi siempre estoy preparando el siguiente reto.</p><p>También me interesa el diseño, <strong data-action=\"reading\">leer</strong> y los <strong data-action=\"videogames\">videojuegos</strong>.</p>",
+        avatarDefault: avatarDefault ? avatarDefault.id : null,
+        avatarRunning: avatarRunning ? avatarRunning.id : null,
+        avatarReading: avatarReading ? avatarReading.id : null,
+        avatarVideogames: avatarVideogames ? avatarVideogames.id : null,
+      };
+
+      const homeDataEn = {
+        intro: "Hi, I'm",
+        title: "Carlos Castañeda",
+        subtitle: "carloscndev",
+        content:
+          "<p>This is my space. Here you can learn a bit more about me, see some of my projects, what I'm currently working on, and, if you're interested, read something on the blog.</p><p>I am a Software Engineer. In my leisure time, I enjoy <strong data-action=\"running\">running</strong>. I have completed several marathons and I am usually preparing for the next challenge.</p><p>I am also interested in design, <strong data-action=\"reading\">reading</strong>, and <strong data-action=\"videogames\">video games</strong>.</p>",
+        avatarDefault: avatarDefault ? avatarDefault.id : null,
+        avatarRunning: avatarRunning ? avatarRunning.id : null,
+        avatarReading: avatarReading ? avatarReading.id : null,
+        avatarVideogames: avatarVideogames ? avatarVideogames.id : null,
+      };
+
+      await strapi.documents("api::home-page.home-page").create({
+        locale: "es",
+        data: homeDataEs,
+      });
+      console.log("[bootstrap] home-page (es) seeded successfully");
+
+      await strapi.documents("api::home-page.home-page").create({
+        locale: "en",
+        data: homeDataEn,
+      });
+      console.log("[bootstrap] home-page (en) seeded successfully");
+    }
   },
 };
