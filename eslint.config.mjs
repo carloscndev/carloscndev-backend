@@ -11,7 +11,8 @@ export default tseslint.config(
       "**/dist/**",
       "**/.cache/**",
       "**/.tmp/**",
-      "**/.strapi/**"
+      "**/.strapi/**",
+      "**/types/generated/**"
     ],
   },
   {
@@ -36,7 +37,8 @@ export default tseslint.config(
       quotes: ["error", "double"],
       "prettier/prettier": ["error", { endOfLine: "auto" }],
       "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-      "@typescript-eslint/no-empty-object-type": "off"
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-explicit-any": "warn"
     },
   },
   {
