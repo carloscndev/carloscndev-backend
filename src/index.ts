@@ -402,5 +402,166 @@ export default {
       });
       console.log("[bootstrap] experience-page (en) seeded successfully");
     }
+
+    // Seed project entries
+    const existingProjects = await strapi
+      .documents("api::project.project")
+      .findMany({ locale: "es" });
+
+    if (!existingProjects || existingProjects.length === 0) {
+      const projectsEs = [
+        {
+          title: "Generative AI Project",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "gen-ai",
+          sortOrder: 0,
+        },
+        {
+          title: "Instagram Clone",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          technologies: ["React", "TypeScript", "StoryBook", "ReactTesting"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+          ],
+          slug: "insta-clone",
+          sortOrder: 1,
+        },
+        {
+          title: "RAG Application",
+          description: "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
+          technologies: ["Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "rag-app",
+          sortOrder: 2,
+        },
+        {
+          title: "Spotify Clone",
+          description: "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
+          technologies: ["React", "TypeScript", "ChatGPT", "Mongoose"],
+          links: [
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "spotify-clone",
+          sortOrder: 3,
+        },
+        {
+          title: "Water App",
+          description: "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
+          technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "water-app",
+          sortOrder: 4,
+        },
+        {
+          title: "Own React",
+          description: "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
+          technologies: ["React", "TypeScript", "Unit Testing", "Webpack"],
+          links: [
+            { type: "demo", url: "#" },
+          ],
+          slug: "own-react",
+          sortOrder: 5,
+        },
+      ];
+
+      const projectsEn = [
+        {
+          title: "Generative AI Project",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "gen-ai",
+          sortOrder: 0,
+        },
+        {
+          title: "Instagram Clone",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          technologies: ["React", "TypeScript", "StoryBook", "ReactTesting"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+          ],
+          slug: "insta-clone",
+          sortOrder: 1,
+        },
+        {
+          title: "RAG Application",
+          description: "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
+          technologies: ["Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "rag-app",
+          sortOrder: 2,
+        },
+        {
+          title: "Spotify Clone",
+          description: "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
+          technologies: ["React", "TypeScript", "ChatGPT", "Mongoose"],
+          links: [
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "spotify-clone",
+          sortOrder: 3,
+        },
+        {
+          title: "Water App",
+          description: "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
+          technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
+          links: [
+            { type: "repo", url: "#" },
+            { type: "demo", url: "#" },
+            { type: "article", url: "#" },
+          ],
+          slug: "water-app",
+          sortOrder: 4,
+        },
+        {
+          title: "Own React",
+          description: "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
+          technologies: ["React", "TypeScript", "Unit Testing", "Webpack"],
+          links: [
+            { type: "demo", url: "#" },
+          ],
+          slug: "own-react",
+          sortOrder: 5,
+        },
+      ];
+
+      for (let i = 0; i < projectsEs.length; i++) {
+        const esEntry = await strapi.documents("api::project.project").create({
+          locale: "es",
+          data: projectsEs[i] as any,
+        });
+
+        await strapi.documents("api::project.project").create({
+          locale: "en",
+          data: { ...projectsEn[i], documentId: esEntry.documentId } as any,
+        });
+      }
+
+      console.log("[bootstrap] project entries seeded successfully");
+    }
   },
 };
