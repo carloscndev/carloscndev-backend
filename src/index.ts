@@ -164,5 +164,91 @@ export default {
       });
       console.log("[bootstrap] home-page (en) seeded successfully");
     }
+
+    // Seed about-page
+    const esAbout = await strapi
+      .documents("api::about-page.about-page")
+      .findFirst({ locale: "es" });
+
+    if (!esAbout) {
+      const fs = await import("fs");
+      const path = await import("path");
+
+      const assetsDir = path.join(
+        process.cwd(),
+        "..",
+        "carloscndev-frontend",
+        "src",
+        "assets",
+        "images"
+      );
+
+      const uploadFile = async (filename: string) => {
+        const filepath = path.join(assetsDir, filename);
+        if (!fs.existsSync(filepath)) {
+          console.warn(`[bootstrap] Image not found: ${filepath}`);
+          return null;
+        }
+        const stat = fs.statSync(filepath);
+        const uploadService = strapi.plugin("upload").service("upload");
+        const uploaded = await uploadService.upload(
+          {
+            data: { fileInfo: { name: filename } },
+            files: {
+              filepath,
+              originalFilename: filename,
+              mimetype: "image/webp",
+              size: stat.size,
+            },
+          },
+          { user: null }
+        );
+        return Array.isArray(uploaded) ? uploaded[0] : uploaded;
+      };
+
+      const aboutImage = await uploadFile("working.webp");
+
+      const aboutDataEs = {
+        title: "Un poco sobre mi",
+        contentText:
+          "<p>Soy ingeniero de software con más de 8 años de experiencia. Me enfoco principalmente en desarrollo <strong>frontend</strong>, aunque también tengo experiencia en <strong>backend</strong> y en la creación de pipelines de <strong>CI/CD</strong>.</p><p>Recientemente me he enfocado en sistemas de <strong>inteligencia artificial generativa</strong> y <strong>machine learning</strong>, incluyendo la integración de modelos de lenguaje (<strong>LLMs</strong>) en flujos de trabajo de productos reales.</p><p>Algunas tecnologías con las que he trabajado recientemente:</p>",
+        technologies: [
+          { name: "Ecosistema de React", icon: "diamond" },
+          { name: "TypeScript", icon: "diamond" },
+          { name: "Node.js", icon: "diamond" },
+          { name: "LLMs", icon: "diamond" },
+          { name: "Astro", icon: "diamond" },
+          { name: "Python", icon: "diamond" },
+        ],
+        image: aboutImage ? aboutImage.id : null,
+      };
+
+      const aboutDataEn = {
+        title: "A bit about me",
+        contentText:
+          "<p>I am a software engineer with over eight years of experience. My work has been primarily focused on <strong>frontend</strong> development, although I also possess experience in <strong>backend</strong> systems and the development of <strong>CI/CD</strong> pipelines.</p><p>In recent years, I have been focusing on <strong>generative AI</strong> and <strong>machine learning</strong> systems, specifically regarding the integration of Large Language Models (<strong>LLMs</strong>) into real-world product workflows.</p><p>Some of the technologies with which I have recently worked include:</p>",
+        technologies: [
+          { name: "React Ecosystem", icon: "diamond" },
+          { name: "TypeScript", icon: "diamond" },
+          { name: "Node.js", icon: "diamond" },
+          { name: "LLMs", icon: "diamond" },
+          { name: "Astro", icon: "diamond" },
+          { name: "Python", icon: "diamond" },
+        ],
+        image: aboutImage ? aboutImage.id : null,
+      };
+
+      await strapi.documents("api::about-page.about-page").create({
+        locale: "es",
+        data: aboutDataEs,
+      });
+      console.log("[bootstrap] about-page (es) seeded successfully");
+
+      await strapi.documents("api::about-page.about-page").create({
+        locale: "en",
+        data: aboutDataEn,
+      });
+      console.log("[bootstrap] about-page (en) seeded successfully");
+    }
   },
 };
