@@ -357,5 +357,50 @@ export default {
 
       console.log("[bootstrap] job entries seeded successfully");
     }
+
+    // Seed experience-page
+    const esExperience = await strapi
+      .documents("api::experience-page.experience-page")
+      .findFirst({ locale: "es" });
+
+    if (!esExperience) {
+      // Get all job documentIds for linking
+      const allJobsEs = await strapi
+        .documents("api::job.job")
+        .findMany({ locale: "es", sort: { sortOrder: "asc" } });
+
+      const allJobsEn = await strapi
+        .documents("api::job.job")
+        .findMany({ locale: "en", sort: { sortOrder: "asc" } });
+
+      const jobIdsEs = allJobsEs.map((job: any) => job.documentId);
+      const jobIdsEn = allJobsEn.map((job: any) => job.documentId);
+
+      const experienceDataEs = {
+        title: "Experiencia Profesional",
+        intro:
+          "Estas son algunas de las empresas en las que he trabajado y un poco de lo que he hecho en cada una lo largo de mi carrera profesional.",
+        jobs: jobIdsEs,
+      };
+
+      const experienceDataEn = {
+        title: "Professional Experience",
+        intro:
+          "Over the years, I have worked across different teams and projects. The following is a brief overview of my experience.",
+        jobs: jobIdsEn,
+      };
+
+      await strapi.documents("api::experience-page.experience-page").create({
+        locale: "es",
+        data: experienceDataEs,
+      });
+      console.log("[bootstrap] experience-page (es) seeded successfully");
+
+      await strapi.documents("api::experience-page.experience-page").create({
+        locale: "en",
+        data: experienceDataEn,
+      });
+      console.log("[bootstrap] experience-page (en) seeded successfully");
+    }
   },
 };
