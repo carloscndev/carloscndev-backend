@@ -1,21 +1,60 @@
 {
+  "name": "carloscndev-backend",
+  "version": "0.1.0",
+  "description": "A Strapi application",
   "scripts": {
-    "prepare": "husky install",
-    "lint": "eslint . --ext .js,.ts",
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "test": "echo \"No tests yet\" && exit 0"
   },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.46.1",
+    "@strapi/plugin-users-permissions": "5.46.1",
+    "@strapi/strapi": "5.46.1",
+    "better-sqlite3": "12.8.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.4.2"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^20.3.1",
-    "@commitlint/config-conventional": "^20.3.1",
-    "@eslint/js": "^9.39.2",
-    "eslint": "^9.39.2",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^20.19.41",
+    "@types/react": "^18.3.29",
+    "@types/react-dom": "^18.3.7",
+    "eslint": "^9.39.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^17.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.8.0"
+    "globals": "^17.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.60.0"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=24.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "c8582d56-44fb-494b-9115-4db76f18abaa",
+    "installId": "dd4ffb391fd98f9c938f8c30ebc2ab5796c9611833088fc3d57c950fdfd84b73"
+  },
+  "pnpm": {
+    "allowedBuiltDependencies": [
+      "better-sqlite3"
+    ]
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

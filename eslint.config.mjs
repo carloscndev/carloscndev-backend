@@ -1,18 +1,31 @@
-import { defineConfig } from "eslint/config";
-import globals from "globals";
 import js from "@eslint/js";
+import globals from "globals";
 import prettierPlugin from "eslint-plugin-prettier";
+import tseslint from "typescript-eslint";
 
-export default defineConfig([
-  js.configs.recommended,
+export default tseslint.config(
   {
-    files: ["**/*.{js,ts}"],
-    ignores: ["node_modules", "build", "dist"],
+    ignores: [
+      "**/node_modules/**",
+      "**/build/**",
+      "**/dist/**",
+      "**/.cache/**",
+      "**/.tmp/**",
+      "**/.strapi/**"
+    ],
+  },
+  {
+    files: ["**/*.{js,ts,tsx}"],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+    ],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
         ...globals.node,
+        ...globals.browser,
       },
     },
     plugins: {
@@ -22,6 +35,15 @@ export default defineConfig([
       semi: ["error", "always"],
       quotes: ["error", "double"],
       "prettier/prettier": ["error", { endOfLine: "auto" }],
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/no-empty-object-type": "off"
     },
   },
-]);
+  {
+    files: ["**/*.example.*"],
+    rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off"
+    }
+  }
+);
