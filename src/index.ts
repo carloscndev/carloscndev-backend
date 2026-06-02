@@ -762,5 +762,34 @@ export default {
       });
       console.log("[bootstrap] contact-page (en) seeded successfully");
     }
+
+    // Seed error-page
+    const esErrorPage = await strapi
+      .documents("api::error-page.error-page")
+      .findFirst({ locale: "es" });
+
+    if (!esErrorPage) {
+      await strapi.documents("api::error-page.error-page").create({
+        locale: "es",
+        data: {
+          title: "Página no encontrada",
+          message:
+            "La página que buscas no existe o ha sido movida. Puede que el enlace esté mal escrito o que la página haya sido eliminada.",
+          button_text: "Volver al inicio",
+        } as any,
+      });
+      console.log("[bootstrap] error-page (es) seeded successfully");
+
+      await strapi.documents("api::error-page.error-page").create({
+        locale: "en",
+        data: {
+          title: "Page not found",
+          message:
+            "The page you are looking for does not exist or has been moved. The link may be misspelled or the page may have been removed.",
+          button_text: "Back to home",
+        } as any,
+      });
+      console.log("[bootstrap] error-page (en) seeded successfully");
+    }
   },
 };
