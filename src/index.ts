@@ -603,5 +603,52 @@ export default {
       });
       console.log("[bootstrap] portfolio-page (en) seeded successfully");
     }
+
+    // Seed category entries
+    const existingCategories = await strapi
+      .documents("api::category.category")
+      .findMany({ locale: "es" });
+
+    if (!existingCategories || existingCategories.length === 0) {
+      const techEs = await strapi.documents("api::category.category").create({
+        locale: "es",
+        data: {
+          name: "Tecnología",
+          slug: "technology",
+          icon: "tech-icon",
+        } as any,
+      });
+
+      await strapi.documents("api::category.category").create({
+        locale: "en",
+        data: {
+          documentId: techEs.documentId,
+          name: "Technology",
+          slug: "technology",
+          icon: "tech-icon",
+        } as any,
+      });
+
+      const runningEs = await strapi.documents("api::category.category").create({
+        locale: "es",
+        data: {
+          name: "Running & Travel",
+          slug: "running-travel",
+          icon: "running-icon",
+        } as any,
+      });
+
+      await strapi.documents("api::category.category").create({
+        locale: "en",
+        data: {
+          documentId: runningEs.documentId,
+          name: "Running & Travel",
+          slug: "running-travel",
+          icon: "running-icon",
+        } as any,
+      });
+
+      console.log("[bootstrap] category entries seeded successfully");
+    }
   },
 };
