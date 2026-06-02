@@ -45,5 +45,16 @@ export default {
         },
       },
     },
+    image: {
+      type: "media",
+      multiple: false,
+      required: true,
+      allowedTypes: ["images"],
+      pluginOptions: {
+        i18n: {
+          localized: false,
+        },
+      },
+    },
   },
 } as const satisfies Schema.ContentType;

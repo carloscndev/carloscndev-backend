@@ -769,6 +769,43 @@ export default {
       .findFirst({ locale: "es" });
 
     if (!esErrorPage) {
+      const fs = await import("fs");
+      const path = await import("path");
+
+      const assetsDir = path.join(
+        process.cwd(),
+        "..",
+        "carloscndev-frontend",
+        "src",
+        "assets",
+        "images"
+      );
+
+      const uploadFile = async (filename: string) => {
+        const filepath = path.join(assetsDir, filename);
+        if (!fs.existsSync(filepath)) {
+          console.warn(`[bootstrap] Image not found: ${filepath}`);
+          return null;
+        }
+        const stat = fs.statSync(filepath);
+        const uploadService = strapi.plugin("upload").service("upload");
+        const uploaded = await uploadService.upload(
+          {
+            data: { fileInfo: { name: filename } },
+            files: {
+              filepath,
+              originalFilename: filename,
+              mimetype: "image/webp",
+              size: stat.size,
+            },
+          },
+          { user: null }
+        );
+        return Array.isArray(uploaded) ? uploaded[0] : uploaded;
+      };
+
+      const sleepingImage = await uploadFile("slepping.webp");
+
       await strapi.documents("api::error-page.error-page").create({
         locale: "es",
         data: {
@@ -776,6 +813,7 @@ export default {
           message:
             "La página que buscas no existe o ha sido movida. Puede que el enlace esté mal escrito o que la página haya sido eliminada.",
           button_text: "Volver al inicio",
+          image: sleepingImage ? sleepingImage.id : null,
         } as any,
       });
       console.log("[bootstrap] error-page (es) seeded successfully");
@@ -787,6 +825,7 @@ export default {
           message:
             "The page you are looking for does not exist or has been moved. The link may be misspelled or the page may have been removed.",
           button_text: "Back to home",
+          image: sleepingImage ? sleepingImage.id : null,
         } as any,
       });
       console.log("[bootstrap] error-page (en) seeded successfully");
