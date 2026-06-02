@@ -548,6 +548,13 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    author: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     category: Schema.Attribute.Relation<"manyToOne", "api::category.category"> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -761,6 +768,13 @@ export interface ApiErrorPageErrorPage extends Struct.SingleTypeSchema {
       }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+    image: Schema.Attribute.Media<"images"> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<"oneToMany", "api::error-page.error-page">;
     message: Schema.Attribute.Text &
