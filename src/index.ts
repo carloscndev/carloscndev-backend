@@ -650,5 +650,49 @@ export default {
 
       console.log("[bootstrap] category entries seeded successfully");
     }
+
+    // Seed blog-post entries (1 dummy post for field validation)
+    const existingPosts = await strapi
+      .documents("api::blog-post.blog-post")
+      .findMany({ locale: "es" });
+
+    if (!existingPosts || existingPosts.length === 0) {
+      const categories = await strapi
+        .documents("api::category.category")
+        .findMany({ locale: "es" });
+
+      const techCategory = categories.find((c: any) => c.slug === "technology");
+
+      const esEntry = await strapi.documents("api::blog-post.blog-post").create({
+        locale: "es",
+        data: {
+          title: "Post de Prueba",
+          slug: "test-post",
+          resume: "Este es un resumen del post de prueba para validar los campos del content type.",
+          readTime: "5 min",
+          date: "2026-06-01",
+          category: techCategory?.documentId || null,
+          icon: "tech-icon",
+          content: "<p>Este es el contenido del post de prueba.</p>",
+        } as any,
+      });
+
+      await strapi.documents("api::blog-post.blog-post").create({
+        locale: "en",
+        data: {
+          documentId: esEntry.documentId,
+          title: "Test Post",
+          slug: "test-post",
+          resume: "This is a test post summary to validate the content type fields.",
+          readTime: "5 min",
+          date: "2026-06-01",
+          category: techCategory?.documentId || null,
+          icon: "tech-icon",
+          content: "<p>This is the test post content.</p>",
+        } as any,
+      });
+
+      console.log("[bootstrap] blog-post entries seeded successfully");
+    }
   },
 };
