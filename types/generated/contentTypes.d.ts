@@ -735,6 +735,54 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiErrorPageErrorPage extends Struct.SingleTypeSchema {
+  collectionName: "error_pages";
+  info: {
+    description: "404 error page with title, message, and button text";
+    displayName: "Error Page";
+    pluralName: "error-pages";
+    singularName: "error-page";
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    button_text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<"oneToMany", "api::error-page.error-page">;
+    message: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExperiencePageExperiencePage extends Struct.SingleTypeSchema {
   collectionName: "experience_pages";
   info: {
@@ -1572,6 +1620,7 @@ declare module "@strapi/strapi" {
       "api::blog-post.blog-post": ApiBlogPostBlogPost;
       "api::category.category": ApiCategoryCategory;
       "api::contact-page.contact-page": ApiContactPageContactPage;
+      "api::error-page.error-page": ApiErrorPageErrorPage;
       "api::experience-page.experience-page": ApiExperiencePageExperiencePage;
       "api::global-config.global-config": ApiGlobalConfigGlobalConfig;
       "api::home-page.home-page": ApiHomePageHomePage;
