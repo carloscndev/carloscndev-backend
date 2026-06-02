@@ -694,5 +694,32 @@ export default {
 
       console.log("[bootstrap] blog-post entries seeded successfully");
     }
+
+    // Seed blog-page
+    const esBlogPage = await strapi
+      .documents("api::blog-page.blog-page")
+      .findFirst({ locale: "es" });
+
+    if (!esBlogPage) {
+      await strapi.documents("api::blog-page.blog-page").create({
+        locale: "es",
+        data: {
+          title: "Mi Blog",
+          intro: "Aquí comparto un poco más a fondo mis proyectos e ideas. También hay un poco de todo: entrenamientos, viajes, pensamientos y lo que voy aprendiendo en el camino.",
+          viewMore: "Ver más",
+        } as any,
+      });
+      console.log("[bootstrap] blog-page (es) seeded successfully");
+
+      await strapi.documents("api::blog-page.blog-page").create({
+        locale: "en",
+        data: {
+          title: "My Blog",
+          intro: "In this space, I share a more detailed look at my projects and ideas. You will also find a variety of topics, including my training, travels, personal thoughts, and the things I am learning along the way.",
+          viewMore: "View more",
+        } as any,
+      });
+      console.log("[bootstrap] blog-page (en) seeded successfully");
+    }
   },
 };
