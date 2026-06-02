@@ -12,15 +12,12 @@ export default tseslint.config(
       "**/.cache/**",
       "**/.tmp/**",
       "**/.strapi/**",
-      "**/types/generated/**"
+      "**/types/generated/**",
     ],
   },
   {
     files: ["**/*.{js,ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-    ],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -34,18 +31,17 @@ export default tseslint.config(
     },
     rules: {
       semi: ["error", "always"],
-      quotes: ["error", "double"],
       "prettier/prettier": ["error", { endOfLine: "auto" }],
-      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/no-empty-object-type": "off",
-      "@typescript-eslint/no-explicit-any": "warn"
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
   {
     files: ["**/*.example.*"],
     rules: {
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "off"
-    }
+      "@typescript-eslint/no-unused-vars": "off",
+    },
   }
 );

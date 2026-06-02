@@ -83,9 +83,7 @@ export default {
     }
 
     // Seed home-page
-    const esHome = await strapi
-      .documents("api::home-page.home-page")
-      .findFirst({ locale: "es" });
+    const esHome = await strapi.documents("api::home-page.home-page").findFirst({ locale: "es" });
 
     if (!esHome) {
       const fs = await import("fs");
@@ -133,7 +131,7 @@ export default {
         title: "Carlos Castañeda",
         subtitle: "carloscndev",
         content:
-          "<p>Este es mi sitio. Aquí puedes conocer un poco más sobre mí, ver algunos de mis proyectos, en qué estoy trabajando actualmente y, si te interesa, leer algo en el blog.</p><p>Soy ingeniero de software. En mi tiempo libre me gusta <strong data-action=\"running\">correr</strong>. He completado varios maratones y casi siempre estoy preparando el siguiente reto.</p><p>También me interesa el diseño, <strong data-action=\"reading\">leer</strong> y los <strong data-action=\"videogames\">videojuegos</strong>.</p>",
+          '<p>Este es mi sitio. Aquí puedes conocer un poco más sobre mí, ver algunos de mis proyectos, en qué estoy trabajando actualmente y, si te interesa, leer algo en el blog.</p><p>Soy ingeniero de software. En mi tiempo libre me gusta <strong data-action="running">correr</strong>. He completado varios maratones y casi siempre estoy preparando el siguiente reto.</p><p>También me interesa el diseño, <strong data-action="reading">leer</strong> y los <strong data-action="videogames">videojuegos</strong>.</p>',
         avatarDefault: avatarDefault ? avatarDefault.id : null,
         avatarRunning: avatarRunning ? avatarRunning.id : null,
         avatarReading: avatarReading ? avatarReading.id : null,
@@ -145,7 +143,7 @@ export default {
         title: "Carlos Castañeda",
         subtitle: "carloscndev",
         content:
-          "<p>This is my space. Here you can learn a bit more about me, see some of my projects, what I'm currently working on, and, if you're interested, read something on the blog.</p><p>I am a Software Engineer. In my leisure time, I enjoy <strong data-action=\"running\">running</strong>. I have completed several marathons and I am usually preparing for the next challenge.</p><p>I am also interested in design, <strong data-action=\"reading\">reading</strong>, and <strong data-action=\"videogames\">video games</strong>.</p>",
+          '<p>This is my space. Here you can learn a bit more about me, see some of my projects, what I\'m currently working on, and, if you\'re interested, read something on the blog.</p><p>I am a Software Engineer. In my leisure time, I enjoy <strong data-action="running">running</strong>. I have completed several marathons and I am usually preparing for the next challenge.</p><p>I am also interested in design, <strong data-action="reading">reading</strong>, and <strong data-action="videogames">video games</strong>.</p>',
         avatarDefault: avatarDefault ? avatarDefault.id : null,
         avatarRunning: avatarRunning ? avatarRunning.id : null,
         avatarReading: avatarReading ? avatarReading.id : null,
@@ -252,9 +250,7 @@ export default {
     }
 
     // Seed job entries
-    const existingJobs = await strapi
-      .documents("api::job.job")
-      .findMany({ locale: "es" });
+    const existingJobs = await strapi.documents("api::job.job").findMany({ locale: "es" });
 
     if (!existingJobs || existingJobs.length === 0) {
       const jobsEs = [
@@ -412,7 +408,8 @@ export default {
       const projectsEs = [
         {
           title: "Generative AI Project",
-          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
           technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "repo", url: "#" },
@@ -424,7 +421,8 @@ export default {
         },
         {
           title: "Instagram Clone",
-          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
           technologies: ["React", "TypeScript", "StoryBook", "ReactTesting"],
           links: [
             { type: "repo", url: "#" },
@@ -435,7 +433,8 @@ export default {
         },
         {
           title: "RAG Application",
-          description: "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
+          description:
+            "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
           technologies: ["Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "demo", url: "#" },
@@ -446,7 +445,8 @@ export default {
         },
         {
           title: "Spotify Clone",
-          description: "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
+          description:
+            "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
           technologies: ["React", "TypeScript", "ChatGPT", "Mongoose"],
           links: [
             { type: "demo", url: "#" },
@@ -457,7 +457,8 @@ export default {
         },
         {
           title: "Water App",
-          description: "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
+          description:
+            "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
           technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "repo", url: "#" },
@@ -469,11 +470,10 @@ export default {
         },
         {
           title: "Own React",
-          description: "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
+          description:
+            "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
           technologies: ["React", "TypeScript", "Unit Testing", "Webpack"],
-          links: [
-            { type: "demo", url: "#" },
-          ],
+          links: [{ type: "demo", url: "#" }],
           slug: "own-react",
           sortOrder: 5,
         },
@@ -482,7 +482,8 @@ export default {
       const projectsEn = [
         {
           title: "Generative AI Project",
-          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
           technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "repo", url: "#" },
@@ -494,7 +495,8 @@ export default {
         },
         {
           title: "Instagram Clone",
-          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
           technologies: ["React", "TypeScript", "StoryBook", "ReactTesting"],
           links: [
             { type: "repo", url: "#" },
@@ -505,7 +507,8 @@ export default {
         },
         {
           title: "RAG Application",
-          description: "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
+          description:
+            "AI framework that improves Large Language Model (LLM) accuracy by retrieving data from external, trusted knowledge bases before generating a response",
           technologies: ["Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "demo", url: "#" },
@@ -516,7 +519,8 @@ export default {
         },
         {
           title: "Spotify Clone",
-          description: "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
+          description:
+            "A Spotify clone project is a full-stack or front-end web application replicating music streaming features, typically built using React, Node.js, and SQL/MongoDB.",
           technologies: ["React", "TypeScript", "ChatGPT", "Mongoose"],
           links: [
             { type: "demo", url: "#" },
@@ -527,7 +531,8 @@ export default {
         },
         {
           title: "Water App",
-          description: "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
+          description:
+            "Water tracker apps, such as Waterllama, My Water, and WaterMinder, help users maintain proper hydration by calculating personalized daily water goals based on weight, activity, and climate.",
           technologies: ["React", "Generative AI", "TypeScript", "Python", "ChatGPT"],
           links: [
             { type: "repo", url: "#" },
@@ -539,11 +544,10 @@ export default {
         },
         {
           title: "Own React",
-          description: "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
+          description:
+            "Creating a custom React component library involves setting up a project with modern tooling for reusability, consistency, and efficient development.",
           technologies: ["React", "TypeScript", "Unit Testing", "Webpack"],
-          links: [
-            { type: "demo", url: "#" },
-          ],
+          links: [{ type: "demo", url: "#" }],
           slug: "own-react",
           sortOrder: 5,
         },
@@ -585,7 +589,8 @@ export default {
         locale: "es",
         data: {
           title: "Mi Portafolio",
-          intro: "Aquí puedes ver algunos de los proyectos en los que he estado trabajando últimamente, junto con uno que otro experimento.",
+          intro:
+            "Aquí puedes ver algunos de los proyectos en los que he estado trabajando últimamente, junto con uno que otro experimento.",
           viewMore: "Ver más",
           projects: projectIdsEs,
         },
@@ -596,7 +601,8 @@ export default {
         locale: "en",
         data: {
           title: "My Portfolio",
-          intro: "A selection of recent work, including production projects, technical challenges, and a few experiments.",
+          intro:
+            "A selection of recent work, including production projects, technical challenges, and a few experiments.",
           viewMore: "View more",
           projects: projectIdsEn,
         },
@@ -705,7 +711,8 @@ export default {
         locale: "es",
         data: {
           title: "Mi Blog",
-          intro: "Aquí comparto un poco más a fondo mis proyectos e ideas. También hay un poco de todo: entrenamientos, viajes, pensamientos y lo que voy aprendiendo en el camino.",
+          intro:
+            "Aquí comparto un poco más a fondo mis proyectos e ideas. También hay un poco de todo: entrenamientos, viajes, pensamientos y lo que voy aprendiendo en el camino.",
           viewMore: "Ver más",
         } as any,
       });
@@ -715,11 +722,45 @@ export default {
         locale: "en",
         data: {
           title: "My Blog",
-          intro: "In this space, I share a more detailed look at my projects and ideas. You will also find a variety of topics, including my training, travels, personal thoughts, and the things I am learning along the way.",
+          intro:
+            "In this space, I share a more detailed look at my projects and ideas. You will also find a variety of topics, including my training, travels, personal thoughts, and the things I am learning along the way.",
           viewMore: "View more",
         } as any,
       });
       console.log("[bootstrap] blog-page (en) seeded successfully");
+    }
+
+    // Seed contact-page
+    const esContactPage = await strapi
+      .documents("api::contact-page.contact-page")
+      .findFirst({ locale: "es" });
+
+    if (!esContactPage) {
+      await strapi.documents("api::contact-page.contact-page").create({
+        locale: "es",
+        data: {
+          title: "Contacto",
+          statusMessage:
+            "Actualmente estoy abierto a nuevas oportunidades. Si tienes un proyecto en mente o simplemente quieres saludar, no dudes en escribirme.",
+          buttonText: "Enviar mensaje",
+          mailTo: "carloscndev@gmail.com",
+          footer: "O si lo prefieres, puedes contactarme a través de mis redes sociales:",
+        } as any,
+      });
+      console.log("[bootstrap] contact-page (es) seeded successfully");
+
+      await strapi.documents("api::contact-page.contact-page").create({
+        locale: "en",
+        data: {
+          title: "Contact",
+          statusMessage:
+            "I am currently open to new opportunities. If you have a project in mind or just want to say hi, feel free to reach out.",
+          buttonText: "Send message",
+          mailTo: "carloscndev@gmail.com",
+          footer: "Or if you prefer, you can contact me through my social media:",
+        } as any,
+      });
+      console.log("[bootstrap] contact-page (en) seeded successfully");
     }
   },
 };
