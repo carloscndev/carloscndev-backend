@@ -1,61 +1,61 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema } from "@strapi/strapi";
 
 export default {
-  kind: 'singleType',
-  collectionName: 'about_pages',
+  kind: "singleType",
+  collectionName: "about_pages",
   info: {
-    singularName: 'about-page',
-    pluralName: 'about-pages',
-    displayName: 'About Page',
-    description: 'About section content with biography, technologies, and image'
+    singularName: "about-page",
+    pluralName: "about-pages",
+    displayName: "About Page",
+    description: "About section content with biography, technologies, and image",
   },
   options: {
-    draftAndPublish: false
+    draftAndPublish: false,
   },
   pluginOptions: {
     i18n: {
-      localized: true
-    }
+      localized: true,
+    },
   },
   attributes: {
     title: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     contentText: {
-      type: 'richtext',
+      type: "richtext",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     technologies: {
-      type: 'component',
-      component: 'elements.technology',
+      type: "component",
+      component: "elements.technology",
       repeatable: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     image: {
-      type: 'media',
+      type: "media",
       multiple: false,
       required: true,
-      allowedTypes: ['images'],
+      allowedTypes: ["images"],
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
-    }
-  }
+          localized: false,
+        },
+      },
+    },
+  },
 } as const satisfies Schema.ContentType;

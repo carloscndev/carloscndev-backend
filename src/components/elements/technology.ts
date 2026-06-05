@@ -2,21 +2,21 @@
  * Technology Component
  */
 export default {
-  collectionName: 'components_elements_technologies',
+  collectionName: "components_elements_technologies",
   info: {
-    displayName: 'Technology',
-    icon: 'code',
-    description: 'A technology item with name and icon identifier'
+    displayName: "Technology",
+    icon: "code",
+    description: "A technology item with name and icon identifier",
   },
-  category: 'elements',
+  category: "elements",
   attributes: {
     name: {
-      type: 'string',
-      required: true
+      type: "string",
+      required: true,
     },
     icon: {
-      type: 'string',
-      required: true
-    }
-  }
+      type: "string",
+      required: true,
+    },
+  },
 };

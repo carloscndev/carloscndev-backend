@@ -1,49 +1,49 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema } from "@strapi/strapi";
 
 export default {
-  kind: 'singleType',
-  collectionName: 'blog_pages',
+  kind: "singleType",
+  collectionName: "blog_pages",
   info: {
-    singularName: 'blog-page',
-    pluralName: 'blog-pages',
-    displayName: 'Blog Page',
-    description: 'Blog section with title, intro, and view more label'
+    singularName: "blog-page",
+    pluralName: "blog-pages",
+    displayName: "Blog Page",
+    description: "Blog section with title, intro, and view more label",
   },
   options: {
-    draftAndPublish: false
+    draftAndPublish: false,
   },
   pluginOptions: {
     i18n: {
-      localized: true
-    }
+      localized: true,
+    },
   },
   attributes: {
     title: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     intro: {
-      type: 'text',
+      type: "text",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     viewMore: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
-    }
-  }
+          localized: true,
+        },
+      },
+    },
+  },
 } as const satisfies Schema.ContentType;

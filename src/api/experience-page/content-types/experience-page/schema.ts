@@ -1,50 +1,50 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema } from "@strapi/strapi";
 
 export default {
-  kind: 'singleType',
-  collectionName: 'experience_pages',
+  kind: "singleType",
+  collectionName: "experience_pages",
   info: {
-    singularName: 'experience-page',
-    pluralName: 'experience-pages',
-    displayName: 'Experience Page',
-    description: 'Experience section with title, intro, and related job entries'
+    singularName: "experience-page",
+    pluralName: "experience-pages",
+    displayName: "Experience Page",
+    description: "Experience section with title, intro, and related job entries",
   },
   options: {
-    draftAndPublish: false
+    draftAndPublish: false,
   },
   pluginOptions: {
     i18n: {
-      localized: true
-    }
+      localized: true,
+    },
   },
   attributes: {
     title: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     intro: {
-      type: 'text',
+      type: "text",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     jobs: {
-      type: 'relation',
-      relation: 'oneToMany',
-      target: 'api::job.job',
+      type: "relation",
+      relation: "oneToMany",
+      target: "api::job.job",
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
-    }
-  }
+          localized: true,
+        },
+      },
+    },
+  },
 } as const satisfies Schema.ContentType;

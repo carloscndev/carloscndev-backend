@@ -1,84 +1,84 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema } from "@strapi/strapi";
 
 export default {
-  kind: 'collectionType',
-  collectionName: 'jobs',
+  kind: "collectionType",
+  collectionName: "jobs",
   info: {
-    singularName: 'job',
-    pluralName: 'jobs',
-    displayName: 'Job',
-    description: 'Professional experience entries'
+    singularName: "job",
+    pluralName: "jobs",
+    displayName: "Job",
+    description: "Professional experience entries",
   },
   options: {
-    draftAndPublish: false
+    draftAndPublish: false,
   },
   pluginOptions: {
     i18n: {
-      localized: true
-    }
+      localized: true,
+    },
   },
   attributes: {
     company: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
+          localized: false,
+        },
+      },
     },
     companyUrl: {
-      type: 'string',
+      type: "string",
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
+          localized: false,
+        },
+      },
     },
     role: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     period: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     description: {
-      type: 'richtext',
+      type: "richtext",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     technologies: {
-      type: 'json',
+      type: "json",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     sortOrder: {
-      type: 'integer',
+      type: "integer",
       default: 0,
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
-    }
-  }
+          localized: false,
+        },
+      },
+    },
+  },
 } as const satisfies Schema.ContentType;

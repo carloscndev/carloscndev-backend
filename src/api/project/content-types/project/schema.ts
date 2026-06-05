@@ -1,77 +1,77 @@
-import type { Schema } from '@strapi/strapi';
+import type { Schema } from "@strapi/strapi";
 
 export default {
-  kind: 'collectionType',
-  collectionName: 'projects',
+  kind: "collectionType",
+  collectionName: "projects",
   info: {
-    singularName: 'project',
-    pluralName: 'projects',
-    displayName: 'Project',
-    description: 'Portfolio project entries'
+    singularName: "project",
+    pluralName: "projects",
+    displayName: "Project",
+    description: "Portfolio project entries",
   },
   options: {
-    draftAndPublish: false
+    draftAndPublish: false,
   },
   pluginOptions: {
     i18n: {
-      localized: true
-    }
+      localized: true,
+    },
   },
   attributes: {
     title: {
-      type: 'string',
+      type: "string",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     description: {
-      type: 'text',
+      type: "text",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     technologies: {
-      type: 'json',
+      type: "json",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: true
-        }
-      }
+          localized: true,
+        },
+      },
     },
     links: {
-      type: 'component',
-      component: 'elements.project-link',
+      type: "component",
+      component: "elements.project-link",
       repeatable: true,
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
+          localized: false,
+        },
+      },
     },
     slug: {
-      type: 'uid',
+      type: "uid",
       required: true,
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
+          localized: false,
+        },
+      },
     },
     sortOrder: {
-      type: 'integer',
+      type: "integer",
       default: 0,
       pluginOptions: {
         i18n: {
-          localized: false
-        }
-      }
-    }
-  }
+          localized: false,
+        },
+      },
+    },
+  },
 } as const satisfies Schema.ContentType;
