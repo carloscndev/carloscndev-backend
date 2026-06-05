@@ -15,21 +15,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Config Node.js
+      # 2. Config pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # 3. Config Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: "pnpm"
 
-      # 3. Install dependencies
+      # 4. Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
-      # 4. Linter
+      # 5. Linter
       - name: Run ESLint
         run: npm run lint
 
-      # 5. Tests
+      # 6. Tests
       - name: Run tests
         run: npm test
