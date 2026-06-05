@@ -680,6 +680,7 @@ export default {
           category: techCategory?.documentId || null,
           icon: "tech-icon",
           content: "<p>Este es el contenido del post de prueba.</p>",
+          author: "carloscndev",
         } as any,
       });
 
@@ -695,6 +696,7 @@ export default {
           category: techCategory?.documentId || null,
           icon: "tech-icon",
           content: "<p>This is the test post content.</p>",
+          author: "carloscndev",
         } as any,
       });
 
