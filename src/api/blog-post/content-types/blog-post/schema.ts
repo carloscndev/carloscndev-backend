@@ -27,15 +27,6 @@ export default {
         },
       },
     },
-    author: {
-      type: "string",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
     slug: {
       type: "uid",
       required: true,
@@ -45,7 +36,16 @@ export default {
         },
       },
     },
-    resume: {
+    date: {
+      type: "date",
+      required: true,
+      pluginOptions: {
+        i18n: {
+          localized: true,
+        },
+      },
+    },
+    excerpt: {
       type: "text",
       required: true,
       pluginOptions: {
@@ -54,8 +54,8 @@ export default {
         },
       },
     },
-    readTime: {
-      type: "string",
+    content: {
+      type: "richtext",
       required: true,
       pluginOptions: {
         i18n: {
@@ -63,12 +63,13 @@ export default {
         },
       },
     },
-    date: {
-      type: "date",
-      required: true,
+    coverImage: {
+      type: "media",
+      multiple: false,
+      allowedTypes: ["images"],
       pluginOptions: {
         i18n: {
-          localized: true,
+          localized: false,
         },
       },
     },
@@ -82,43 +83,14 @@ export default {
         },
       },
     },
-    icon: {
-      type: "string",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
+    author: {
+      type: "relation",
+      relation: "manyToOne",
+      target: "plugin::users-permissions.user",
     },
-    headerImage: {
-      type: "media",
-      multiple: false,
-      allowedTypes: ["images"],
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
-    content: {
-      type: "richtext",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
-    },
-    featuredImage: {
-      type: "media",
-      multiple: false,
-      allowedTypes: ["images"],
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
+    seo: {
+      type: "component",
+      component: "shared.seo",
     },
   },
 } as const satisfies Schema.ContentType;
