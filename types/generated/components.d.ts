@@ -52,6 +52,25 @@ export interface ElementsTechnology extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: "components_shared_seos";
+  info: {
+    description: "SEO metadata for pages and blog posts";
+    displayName: "SEO";
+    icon: "search";
+  };
+  attributes: {
+    metaTitle: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    metaImage: Schema.Attribute.Media<"images">;
+    keywords: Schema.Attribute.String;
+    metaRobots: Schema.Attribute.String & Schema.Attribute.DefaultTo<"index, follow">;
+  };
+}
+
 declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
@@ -59,6 +78,7 @@ declare module "@strapi/strapi" {
       "elements.project-link": ElementsProjectLink;
       "elements.social-link": ElementsSocialLink;
       "elements.technology": ElementsTechnology;
+      "shared.seo": SharedSeo;
     }
   }
 }
