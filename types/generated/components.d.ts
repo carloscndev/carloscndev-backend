@@ -60,14 +60,14 @@ export interface SharedSeo extends Struct.ComponentSchema {
     icon: "search";
   };
   attributes: {
-    metaTitle: Schema.Attribute.String;
+    keywords: Schema.Attribute.String;
     metaDescription: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 160;
       }>;
     metaImage: Schema.Attribute.Media<"images">;
-    keywords: Schema.Attribute.String;
     metaRobots: Schema.Attribute.String & Schema.Attribute.DefaultTo<"index, follow">;
+    metaTitle: Schema.Attribute.String;
   };
 }
 
