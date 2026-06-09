@@ -36,6 +36,31 @@ export default {
         },
       },
     },
+    author: {
+      type: "relation",
+      relation: "manyToOne",
+      target: "api::author.author",
+    },
+    category: {
+      type: "relation",
+      relation: "manyToOne",
+      target: "api::category.category",
+      pluginOptions: {
+        i18n: {
+          localized: true,
+        },
+      },
+    },
+    coverImage: {
+      type: "media",
+      multiple: false,
+      allowedTypes: ["images"],
+      pluginOptions: {
+        i18n: {
+          localized: false,
+        },
+      },
+    },
     date: {
       type: "date",
       required: true,
@@ -62,31 +87,6 @@ export default {
           localized: true,
         },
       },
-    },
-    coverImage: {
-      type: "media",
-      multiple: false,
-      allowedTypes: ["images"],
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
-    category: {
-      type: "relation",
-      relation: "manyToOne",
-      target: "api::category.category",
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
-    },
-    author: {
-      type: "relation",
-      relation: "manyToOne",
-      target: "api::author.author",
     },
     seo: {
       type: "component",
