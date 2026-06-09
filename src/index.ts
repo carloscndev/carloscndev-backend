@@ -616,43 +616,28 @@ export default {
       .findMany({ locale: "es" });
 
     if (!existingCategories || existingCategories.length === 0) {
-      const techEs = await strapi.documents("api::category.category").create({
-        locale: "es",
-        data: {
-          name: "Tecnología",
-          slug: "technology",
-          icon: "tech-icon",
-        } as any,
-      });
+      const categories = [
+        { es: "Tecnología", en: "Tech", icon: "TechIcon" },
+        { es: "Running", en: "Running", icon: "RunningIcon" },
+        { es: "Viajes", en: "Travel", icon: "TravelIcon" },
+        { es: "Libros", en: "Books", icon: "BookIcon" },
+      ];
 
-      await strapi.documents("api::category.category").create({
-        locale: "en",
-        data: {
-          documentId: techEs.documentId,
-          name: "Technology",
-          slug: "technology",
-          icon: "tech-icon",
-        } as any,
-      });
+      for (const cat of categories) {
+        const esEntry = await strapi.documents("api::category.category").create({
+          locale: "es",
+          data: { name: cat.es, icon: cat.icon } as any,
+        });
 
-      const runningEs = await strapi.documents("api::category.category").create({
-        locale: "es",
-        data: {
-          name: "Running & Travel",
-          slug: "running-travel",
-          icon: "running-icon",
-        } as any,
-      });
-
-      await strapi.documents("api::category.category").create({
-        locale: "en",
-        data: {
-          documentId: runningEs.documentId,
-          name: "Running & Travel",
-          slug: "running-travel",
-          icon: "running-icon",
-        } as any,
-      });
+        await strapi.documents("api::category.category").create({
+          locale: "en",
+          data: {
+            documentId: esEntry.documentId,
+            name: cat.en,
+            icon: cat.icon,
+          } as any,
+        });
+      }
 
       console.log("[bootstrap] category entries seeded successfully");
     }
