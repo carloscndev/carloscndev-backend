@@ -10,7 +10,7 @@ export default {
     description: "Blog post entries",
   },
   options: {
-    draftAndPublish: false,
+    draftAndPublish: true,
   },
   pluginOptions: {
     i18n: {
