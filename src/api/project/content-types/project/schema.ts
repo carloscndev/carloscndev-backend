@@ -36,42 +36,19 @@ export default {
         },
       },
     },
+    coverImage: {
+      type: "media",
+      multiple: false,
+      allowedTypes: ["images"],
+    },
     technologies: {
       type: "json",
       required: true,
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
     },
     links: {
       type: "component",
       component: "elements.project-link",
       repeatable: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
-    slug: {
-      type: "uid",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
-    sortOrder: {
-      type: "integer",
-      default: 0,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
     },
   },
 } as const satisfies Schema.ContentType;
