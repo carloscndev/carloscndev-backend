@@ -1120,12 +1120,7 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<"oneToMany", "api::portfolio-page.portfolio-page">;
-    projects: Schema.Attribute.Relation<"oneToMany", "api::project.project"> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    projects: Schema.Attribute.Relation<"oneToMany", "api::project.project">;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &

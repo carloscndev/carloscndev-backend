@@ -50,11 +50,6 @@ export default {
       type: "relation",
       relation: "oneToMany",
       target: "api::project.project",
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
     },
   },
 } as const satisfies Schema.ContentType;
