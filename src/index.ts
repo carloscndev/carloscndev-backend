@@ -502,15 +502,15 @@ export default {
       .findFirst({ locale: "es" });
 
     if (!esContactPage) {
-      await strapi.documents("api::contact-page.contact-page").create({
+      const esContact = await strapi.documents("api::contact-page.contact-page").create({
         locale: "es",
         data: {
-          title: "Contacto",
+          title: "Hablemos 👋",
           statusMessage:
-            "Actualmente estoy abierto a nuevas oportunidades. Si tienes un proyecto en mente o simplemente quieres saludar, no dudes en escribirme.",
-          buttonText: "Enviar mensaje",
+            "No estoy buscando nuevas oportunidades actualmente, pero mi correo siempre está disponible. Si tienes alguna duda o solo quieres decir hola, ¡intentaré de contestarte lo antes posible!",
+          buttonText: "Escríbeme",
           mailTo: "carloscndev@gmail.com",
-          footer: "O si lo prefieres, puedes contactarme a través de mis redes sociales:",
+          footer: "Diseñado y Construido por @carloscndev",
         } as any,
       });
       console.log("[bootstrap] contact-page (es) seeded successfully");
@@ -518,12 +518,13 @@ export default {
       await strapi.documents("api::contact-page.contact-page").create({
         locale: "en",
         data: {
-          title: "Contact",
+          documentId: esContact.documentId,
+          title: "Let's Talk 👋",
           statusMessage:
-            "I am currently open to new opportunities. If you have a project in mind or just want to say hi, feel free to reach out.",
-          buttonText: "Send message",
+            "I am not currently looking for new opportunities, but my inbox is always open. If you have any questions, or simply want to say hello, I will do my best to respond as soon as possible.",
+          buttonText: "Write me",
           mailTo: "carloscndev@gmail.com",
-          footer: "Or if you prefer, you can contact me through my social media:",
+          footer: "Designed and Developed by @carloscndev",
         } as any,
       });
       console.log("[bootstrap] contact-page (en) seeded successfully");
