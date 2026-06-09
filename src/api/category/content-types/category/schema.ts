@@ -27,15 +27,6 @@ export default {
         },
       },
     },
-    slug: {
-      type: "uid",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
     icon: {
       type: "string",
       required: true,
