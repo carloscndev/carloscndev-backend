@@ -361,40 +361,33 @@ export default {
 
     if (!esExperience) {
       // Get all job documentIds for linking
-      const allJobsEs = await strapi
-        .documents("api::job.job")
-        .findMany({ locale: "es", sort: { sortOrder: "asc" } });
+      const allJobsEs = await strapi.documents("api::job.job").findMany({ locale: "es" });
 
-      const allJobsEn = await strapi
-        .documents("api::job.job")
-        .findMany({ locale: "en", sort: { sortOrder: "asc" } });
+      const allJobsEn = await strapi.documents("api::job.job").findMany({ locale: "en" });
 
       const jobIdsEs = allJobsEs.map((job: any) => job.documentId);
       const jobIdsEn = allJobsEn.map((job: any) => job.documentId);
 
-      const experienceDataEs = {
-        title: "Experiencia Profesional",
-        intro:
-          "Estas son algunas de las empresas en las que he trabajado y un poco de lo que he hecho en cada una lo largo de mi carrera profesional.",
-        jobs: jobIdsEs,
-      };
-
-      const experienceDataEn = {
-        title: "Professional Experience",
-        intro:
-          "Over the years, I have worked across different teams and projects. The following is a brief overview of my experience.",
-        jobs: jobIdsEn,
-      };
-
-      await strapi.documents("api::experience-page.experience-page").create({
+      const esExp = await strapi.documents("api::experience-page.experience-page").create({
         locale: "es",
-        data: experienceDataEs,
+        data: {
+          title: "Experiencia Profesional",
+          intro:
+            "Estas son algunas de las empresas en las que he trabajado y un poco de lo que he hecho en cada una lo largo de mi carrera profesional.",
+          jobs: jobIdsEs,
+        },
       });
       console.log("[bootstrap] experience-page (es) seeded successfully");
 
       await strapi.documents("api::experience-page.experience-page").create({
         locale: "en",
-        data: experienceDataEn,
+        data: {
+          documentId: esExp.documentId,
+          title: "Professional Experience",
+          intro:
+            "Over the years, I have worked across different teams and projects. The following is a brief overview of my experience.",
+          jobs: jobIdsEn,
+        },
       });
       console.log("[bootstrap] experience-page (en) seeded successfully");
     }
@@ -407,16 +400,16 @@ export default {
     if (!esPortfolio) {
       const allProjectsEs = await strapi
         .documents("api::project.project")
-        .findMany({ locale: "es", sort: { sortOrder: "asc" } });
+        .findMany({ locale: "es" });
 
       const allProjectsEn = await strapi
         .documents("api::project.project")
-        .findMany({ locale: "en", sort: { sortOrder: "asc" } });
+        .findMany({ locale: "en" });
 
       const projectIdsEs = allProjectsEs.map((p: any) => p.documentId);
       const projectIdsEn = allProjectsEn.map((p: any) => p.documentId);
 
-      await strapi.documents("api::portfolio-page.portfolio-page").create({
+      const esEntry = await strapi.documents("api::portfolio-page.portfolio-page").create({
         locale: "es",
         data: {
           title: "Mi Portafolio",
@@ -431,6 +424,7 @@ export default {
       await strapi.documents("api::portfolio-page.portfolio-page").create({
         locale: "en",
         data: {
+          documentId: esEntry.documentId,
           title: "My Portfolio",
           intro:
             "A selection of recent work, including production projects, technical challenges, and a few experiments.",

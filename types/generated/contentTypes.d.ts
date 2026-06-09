@@ -838,12 +838,7 @@ export interface ApiExperiencePageExperiencePage extends Struct.SingleTypeSchema
           localized: true;
         };
       }>;
-    jobs: Schema.Attribute.Relation<"oneToMany", "api::job.job"> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    jobs: Schema.Attribute.Relation<"oneToMany", "api::job.job">;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<"oneToMany", "api::experience-page.experience-page">;
     publishedAt: Schema.Attribute.DateTime;

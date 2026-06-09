@@ -40,11 +40,6 @@ export default {
       type: "relation",
       relation: "oneToMany",
       target: "api::job.job",
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
     },
   },
 } as const satisfies Schema.ContentType;
