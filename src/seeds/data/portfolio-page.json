@@ -1,0 +1,12 @@
+{
+  "es": {
+    "title": "Mi Portafolio",
+    "intro": "Aqu\u00ed puedes ver algunos de los proyectos en los que he estado trabajando \u00faltimamente, junto con uno que otro experimento.",
+    "viewMore": "Ver m\u00e1s"
+  },
+  "en": {
+    "title": "My Portfolio",
+    "intro": "A selection of recent work, including production projects, technical challenges, and a few experiments.",
+    "viewMore": "View more"
+  }
+}

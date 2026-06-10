@@ -1,0 +1,50 @@
+{
+  "es": {
+    "siteName": "Carlos Castañeda",
+    "defaultLocale": "es",
+    "seo": {
+      "metaTitle": "carloscndev",
+      "metaDescription": "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
+      "metaRobots": "index, follow"
+    },
+    "navigation": [
+      { "key": "home", "href": "/" },
+      { "key": "about", "href": "/#about" },
+      { "key": "experience", "href": "/#experience" },
+      { "key": "portfolio", "href": "/#portfolio" },
+      { "key": "blog", "href": "/#blog" },
+      { "key": "contact", "href": "/#contact" }
+    ],
+    "social": [
+      { "platform": "github", "url": "https://github.com/carloscndev" },
+      { "platform": "instagram", "url": "https://www.instagram.com/carloscndev.isrunning/" },
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/carloscndev/" },
+      { "platform": "cv", "url": "https://carloscndev.github.io" },
+      { "platform": "email", "url": "mailto:carloscndev@gmail.com" }
+    ]
+  },
+  "en": {
+    "siteName": "Carlos Castañeda",
+    "defaultLocale": "es",
+    "seo": {
+      "metaTitle": "carloscndev",
+      "metaDescription": "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
+      "metaRobots": "index, follow"
+    },
+    "navigation": [
+      { "key": "home", "href": "/" },
+      { "key": "about", "href": "/#about" },
+      { "key": "experience", "href": "/#experience" },
+      { "key": "portfolio", "href": "/#portfolio" },
+      { "key": "blog", "href": "/#blog" },
+      { "key": "contact", "href": "/#contact" }
+    ],
+    "social": [
+      { "platform": "github", "url": "https://github.com/carloscndev" },
+      { "platform": "instagram", "url": "https://www.instagram.com/carloscndev.isrunning/" },
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/carloscndev/" },
+      { "platform": "cv", "url": "https://carloscndev.github.io" },
+      { "platform": "email", "url": "mailto:carloscndev@gmail.com" }
+    ]
+  }
+}

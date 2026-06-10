@@ -1,0 +1,16 @@
+{
+  "es": {
+    "title": "Hablemos 👋",
+    "statusMessage": "No estoy buscando nuevas oportunidades actualmente, pero mi correo siempre está disponible. Si tienes alguna duda o solo quieres decir hola, ¡intentaré de contestarte lo antes posible!",
+    "buttonText": "Escríbeme",
+    "mailTo": "carloscndev@gmail.com",
+    "footer": "Diseñado y Construido por @carloscndev"
+  },
+  "en": {
+    "title": "Let's Talk 👋",
+    "statusMessage": "I am not currently looking for new opportunities, but my inbox is always open. If you have any questions, or simply want to say hello, I will do my best to respond as soon as possible.",
+    "buttonText": "Write me",
+    "mailTo": "carloscndev@gmail.com",
+    "footer": "Designed and Developed by @carloscndev"
+  }
+}

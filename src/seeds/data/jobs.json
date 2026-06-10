@@ -1,0 +1,82 @@
+[
+  {
+    "es": {
+      "company": "C3 AI",
+      "companyUrl": "https://c3.ai",
+      "role": "Mid Software Engineer",
+      "period": "Ene 2023 - May 2025",
+      "description": "<p>En este rol trabaj\u00e9 en aplicaciones full stack en producci\u00f3n, liderando el desarrollo end-to-end de funcionalidades, desde la arquitectura hasta el despliegue.</p><p>Me enfoqu\u00e9 en integrar IA Generativa en productos empresariales y en construir pipelines de Machine Learning dentro de sistemas distribuidos. En el d\u00eda a d\u00eda, integraba modelos de lenguaje a flujos reales, colaborando de cerca con dise\u00f1o y producto para construir sistemas escalables y mejorar la experiencia de desarrollo.</p>",
+      "technologies": ["Generative AI", "React", "TypeScript", "Python"],
+      "sortOrder": 0
+    },
+    "en": {
+      "company": "C3 AI",
+      "companyUrl": "https://c3.ai",
+      "role": "Mid Software Engineer",
+      "period": "Jan 2023 - May 2025",
+      "description": "<p>In this role, I worked on full stack applications in production. I led the development of features from the initial architecture to the final deployment.</p><p>I focused on the integration of Generative AI into enterprise products and the construction of Machine Learning pipelines in distributed systems. On a daily basis, I integrated language models into real workflows, working closely with the design and product teams to build scalable systems and improve the development experience.</p>",
+      "technologies": ["Generative AI", "React", "TypeScript", "Python"],
+      "sortOrder": 0
+    }
+  },
+  {
+    "es": {
+      "company": "Liverpool",
+      "companyUrl": "https://www.liverpool.com.mx/tienda/home",
+      "role": "Software Engineer",
+      "period": "Feb 2020 - Nov 2022",
+      "description": "<p>En este rol trabaj\u00e9 en el desarrollo y mantenimiento de una de las plataformas de ecommerce m\u00e1s grandes de M\u00e9xico, con m\u00e1s de 13 millones de usuarios activos al mes.</p><p>Estuve involucrado en la entrega de nuevas funcionalidades usando un stack basado en React, Next.js y Node.js, adem\u00e1s de dise\u00f1ar e implementar Cloud Functions en GCP para automatizar procesos del frontend. Tambi\u00e9n impuls\u00e9 mejoras de rendimiento y desarroll\u00e9 herramientas internas para elevar la calidad del c\u00f3digo y optimizar los flujos del equipo.</p>",
+      "technologies": ["React", "Node.js", "Express.js", "GCP Cloud Functions"],
+      "sortOrder": 1
+    },
+    "en": {
+      "company": "Liverpool",
+      "companyUrl": "https://www.liverpool.com.mx/tienda/home",
+      "role": "Software Engineer",
+      "period": "Feb 2020 - Nov 2022",
+      "description": "<p>In this role, I worked on the development and maintenance of one of the largest e-commerce platforms in Mexico, which serves over 13 million monthly active users.</p><p>I was involved in the delivery of new features using a technology stack based on React, Next.js, and Node.js. Additionally, I designed and implemented Cloud Functions on GCP to automate frontend processes. I also led performance improvements and developed internal tools to increase code quality and optimize team workflows.</p>",
+      "technologies": ["React", "Node.js", "Express.js", "GCP Cloud Functions"],
+      "sortOrder": 1
+    }
+  },
+  {
+    "es": {
+      "company": "Sngular",
+      "companyUrl": "https://www.sngular.com/es/",
+      "role": "Frontend Developer",
+      "period": "Mar 2018 - Feb 2020",
+      "description": "<p>Lider\u00e9 el desarrollo frontend trabajando con arquitecturas modernas en React y migrando plataformas legacy hacia stacks actuales con Gatsby, GraphQL y Styled Components.</p><p>Me encargu\u00e9 de construir componentes reutilizables con React y Redux, asegurando la estabilidad del c\u00f3digo mediante pruebas unitarias con Jest.</p><p>Adem\u00e1s, automatic\u00e9 procesos internos con AWS Lambda, implement\u00e9 pipelines de CI/CD y desarroll\u00e9 servicios en el backend con Node.js y Express.</p>",
+      "technologies": ["React", "Gatsby", "GraphQL", "AWS Lambda", "Jest", "Node.js"],
+      "sortOrder": 2
+    },
+    "en": {
+      "company": "Sngular",
+      "companyUrl": "https://www.sngular.com/es/",
+      "role": "Frontend Developer",
+      "period": "Mar 2018 - Feb 2020",
+      "description": "<p>In this role, I led frontend development, working with modern React-based architectures and migrating legacy platforms to more current stacks using Gatsby, GraphQL, and Styled Components.</p><p>I contributed to building reusable components with Redux and maintaining code quality through unit testing with Jest.</p><p>Additionally, I worked on automating internal processes with AWS Lambda, implementing CI/CD pipelines, and developing backend support services with Node.js and Express.</p>",
+      "technologies": ["React", "Gatsby", "GraphQL", "AWS Lambda", "Jest", "Node.js"],
+      "sortOrder": 2
+    }
+  },
+  {
+    "es": {
+      "company": "STC Metro",
+      "companyUrl": "http://www.metro.cdmx.gob.mx",
+      "role": "Software Developer",
+      "period": "Ago 2015 - Mar 2018",
+      "description": "<p>Lider\u00e9 la modernizaci\u00f3n de sistemas de monitoreo para gabinetes de pilotaje autom\u00e1tico, dise\u00f1ando plataformas web en Python y JavaScript para sustituir software licenciado y reducir costos operativos.</p><p>Desarroll\u00e9 herramientas de monitoreo para infraestructura de se\u00f1alizaci\u00f3n y actualic\u00e9 sistemas embebidos en plataformas legacy utilizando C/C++. Fue un rol donde combin\u00e9 tecnolog\u00edas web con sistemas cr\u00edticos para mejorar la eficiencia del monitoreo en tiempo real.</p>",
+      "technologies": ["Python", "JavaScript", "C/C++", "PHP", "Sistemas Embebidos", "Linux"],
+      "sortOrder": 3
+    },
+    "en": {
+      "company": "STC Metro",
+      "companyUrl": "http://www.metro.cdmx.gob.mx",
+      "role": "Software Developer",
+      "period": "Aug 2015 - Mar 2018",
+      "description": "<p>In this role, I led the modernization of remote monitoring systems for automatic control cabinets, designing web-based platforms with Python and JavaScript to replace licensed software and reduce operational costs.</p><p>I also contributed to the development of monitoring tools for signaling infrastructure and supported updates to embedded systems on legacy electronic platforms using C/C++.</p><p>This work involved combining web technologies with critical real-time systems to improve monitoring efficiency.</p>",
+      "technologies": ["Python", "JavaScript", "C/C++", "PHP", "Embedded Systems", "Linux"],
+      "sortOrder": 3
+    }
+  }
+]
