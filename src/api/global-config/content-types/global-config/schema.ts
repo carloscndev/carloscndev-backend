@@ -2,11 +2,11 @@ import type { Schema } from "@strapi/strapi";
 
 export default {
   kind: "singleType",
-  collectionName: "site_configs",
+  collectionName: "global_configs",
   info: {
-    singularName: "site-config",
-    pluralName: "site-configs",
-    displayName: "Site Configuration",
+    singularName: "global-config",
+    pluralName: "global-configs",
+    displayName: "Global Config",
     description: "Global site configuration including metadata, navigation, and social links",
   },
   options: {
@@ -37,7 +37,7 @@ export default {
         },
       },
     },
-    metadata: {
+    seo: {
       type: "component",
       component: "shared.seo",
       repeatable: false,
