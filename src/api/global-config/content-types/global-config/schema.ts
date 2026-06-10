@@ -27,33 +27,6 @@ export default {
         },
       },
     },
-    siteTitle: {
-      type: "string",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
-    },
-    siteDescription: {
-      type: "text",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: true,
-        },
-      },
-    },
-    siteAuthor: {
-      type: "string",
-      required: true,
-      pluginOptions: {
-        i18n: {
-          localized: false,
-        },
-      },
-    },
     defaultLocale: {
       type: "string",
       required: true,
@@ -61,6 +34,15 @@ export default {
       pluginOptions: {
         i18n: {
           localized: false,
+        },
+      },
+    },
+    seo: {
+      type: "component",
+      component: "shared.seo",
+      pluginOptions: {
+        i18n: {
+          localized: true,
         },
       },
     },

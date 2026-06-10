@@ -24,15 +24,19 @@ export default {
       .documents("api::global-config.global-config")
       .findFirst({ locale: "en" });
 
+    let esEntry: any = null;
+
     if (!esExisting) {
-      await strapi.documents("api::global-config.global-config").create({
+      esEntry = await strapi.documents("api::global-config.global-config").create({
         locale: "es",
         data: {
           siteName: "Carlos Castañeda",
-          siteTitle: "carloscndev",
-          siteDescription: "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
-          siteAuthor: "carloscndev",
           defaultLocale: "es",
+          seo: {
+            metaTitle: "carloscndev",
+            metaDescription: "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
+            metaRobots: "index, follow",
+          },
           navigation: [
             { key: "home", href: "/" },
             { key: "about", href: "/#about" },
@@ -54,14 +58,18 @@ export default {
     }
 
     if (!enExisting) {
+      const docId = esEntry ? esEntry.documentId : esExisting.documentId;
       await strapi.documents("api::global-config.global-config").create({
         locale: "en",
         data: {
+          documentId: esEntry.documentId,
           siteName: "Carlos Castañeda",
-          siteTitle: "carloscndev",
-          siteDescription: "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
-          siteAuthor: "carloscndev",
           defaultLocale: "es",
+          seo: {
+            metaTitle: "carloscndev",
+            metaDescription: "Carlos Castañeda — Software Engineer. Portfolio, blog, and projects.",
+            metaRobots: "index, follow",
+          },
           navigation: [
             { key: "home", href: "/" },
             { key: "about", href: "/#about" },
@@ -457,7 +465,7 @@ export default {
         await strapi.documents("api::category.category").create({
           locale: "en",
           data: {
-            documentId: esEntry.documentId,
+            documentId: docId,
             name: cat.en,
             icon: cat.icon,
           } as any,
