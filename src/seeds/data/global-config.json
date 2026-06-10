@@ -4,8 +4,8 @@
     "defaultLocale": "es",
     "seo": {
       "metaTitle": "carloscndev",
-      "metaDescription": "Carlos Castañeda — Ingeniero de Software. Especializado en desarrollo web moderno, arquitectura escalable, optimización de rendimiento y proyectos full-stack.",
-      "keywords": "Carlos Castañeda, Software Engineer, Ingeniero de Software, Desarrollo Web Moderno, Arquitectura de Software, Full Stack Developer, Portafolio y Blog Tecnico, Optimizacion de Rendimiento, JavaScript, Astro, Strapi, Vercel",
+      "metaDescription": "Carlos Castañeda — Ingeniero de Software. Especializado en desarrollo web moderno, integración de IA Generativa, arquitectura escalable y optimización de rendimiento.",
+      "keywords": "Carlos Castañeda, Software Engineer, Ingeniero de Software, IA Generativa, Integracion de IA, Generative AI, Desarrollo Web Moderno, Arquitectura de Software, Full Stack Developer, Optimizacion de Rendimiento, JavaScript, Astro, Strapi, Vercel",
       "metaRobots": "index, follow"
     },
     "navigation": [
@@ -29,8 +29,8 @@
     "defaultLocale": "es",
     "seo": {
       "metaTitle": "carloscndev",
-      "metaDescription": "Carlos Castañeda — Software Engineer. Specializing in modern web development, scalable architecture, performance optimization, and full-stack projects.",
-      "keywords": "Carlos Castañeda, Software Engineer, Web Developer, Software Architecture, Full Stack Developer, Modern Web Stacks, Performance Optimization, Technical Blog, JavaScript, Astro, Strapi, Vercel",
+      "metaDescription": "Carlos Castañeda — Software Engineer. Specializing in modern web development, Generative AI integration, scalable architecture, and performance optimization.",
+      "keywords": "Carlos Castañeda, Software Engineer, Generative AI, AI Integration, AI Solutions, Software Architecture, Full Stack Developer, Modern Web Stacks, Performance Optimization, JavaScript, Astro, Strapi, Vercel",
       "metaRobots": "index, follow"
     },
     "navigation": [
