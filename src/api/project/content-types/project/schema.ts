@@ -51,4 +51,4 @@ export default {
       repeatable: true,
     },
   },
-} as const satisfies Schema.ContentType;
+} as const;

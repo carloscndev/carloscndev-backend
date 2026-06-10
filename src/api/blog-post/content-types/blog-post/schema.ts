@@ -93,4 +93,4 @@ export default {
       component: "shared.seo",
     },
   },
-} as const satisfies Schema.ContentType;
+} as const;

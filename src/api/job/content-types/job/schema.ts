@@ -81,4 +81,4 @@ export default {
       },
     },
   },
-} as const satisfies Schema.ContentType;
+} as const;

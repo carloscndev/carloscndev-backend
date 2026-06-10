@@ -42,4 +42,4 @@ export default {
       target: "api::job.job",
     },
   },
-} as const satisfies Schema.ContentType;
+} as const;

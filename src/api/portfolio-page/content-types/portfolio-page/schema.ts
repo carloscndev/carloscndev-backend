@@ -52,4 +52,4 @@ export default {
       target: "api::project.project",
     },
   },
-} as const satisfies Schema.ContentType;
+} as const;

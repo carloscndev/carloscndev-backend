@@ -465,7 +465,7 @@ export default {
         await strapi.documents("api::category.category").create({
           locale: "en",
           data: {
-            documentId: docId,
+            documentId: esEntry.documentId,
             name: cat.en,
             icon: cat.icon,
           } as any,
