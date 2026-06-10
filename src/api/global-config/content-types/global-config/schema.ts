@@ -17,5 +17,55 @@ export default {
       localized: true,
     },
   },
-  attributes: {},
+  attributes: {
+    siteName: {
+      type: "string",
+      required: true,
+      pluginOptions: {
+        i18n: {
+          localized: true,
+        },
+      },
+    },
+    defaultLocale: {
+      type: "string",
+      required: true,
+      default: "es",
+      pluginOptions: {
+        i18n: {
+          localized: false,
+        },
+      },
+    },
+    seo: {
+      type: "component",
+      component: "shared.seo",
+      repeatable: false,
+      pluginOptions: {
+        i18n: {
+          localized: true,
+        },
+      },
+    },
+    navigation: {
+      type: "component",
+      component: "elements.navigation-item",
+      repeatable: true,
+      pluginOptions: {
+        i18n: {
+          localized: true,
+        },
+      },
+    },
+    social: {
+      type: "component",
+      component: "elements.social-link",
+      repeatable: true,
+      pluginOptions: {
+        i18n: {
+          localized: false,
+        },
+      },
+    },
+  },
 } as const;
