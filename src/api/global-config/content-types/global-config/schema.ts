@@ -37,7 +37,7 @@ export default {
         },
       },
     },
-    seo: {
+    metadata: {
       type: "component",
       component: "shared.seo",
       repeatable: false,
