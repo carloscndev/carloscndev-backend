@@ -2,11 +2,11 @@ import type { Schema } from "@strapi/strapi";
 
 export default {
   kind: "singleType",
-  collectionName: "global_configs",
+  collectionName: "site_configs",
   info: {
-    singularName: "global-config",
-    pluralName: "global-configs",
-    displayName: "Global Config",
+    singularName: "site-config",
+    pluralName: "site-configs",
+    displayName: "Site Configuration",
     description: "Global site configuration including metadata, navigation, and social links",
   },
   options: {
